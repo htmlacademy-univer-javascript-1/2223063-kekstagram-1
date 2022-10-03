@@ -1,13 +1,13 @@
 function getRandomNumber(first, second){
-  if (first > second || first < 0 || second < 0){
-    return new Error('Error. Change input values');
-  }
-  return (Math.round(Math.random() * (second - first) + first));
+  const lower = Math.ceil(Math.min(Math.abs(first), Math.abs(second)));
+  const upper = Math.floor(Math.max(Math.abs(first), Math.abs(second)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
 }
 
-function checkLength(string, length){
-  return(string.length <= length);
+function checkStringLength (string, length) {
+  return string.length <= length;
 }
 
 getRandomNumber(1, 4);
-checkLength('123', 3);
+checkStringLength('123', 3);
