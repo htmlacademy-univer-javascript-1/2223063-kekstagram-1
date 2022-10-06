@@ -19,7 +19,6 @@ const NAMES = [
   'Василий',
   'Валентин',
   'Анна'
-
 ];
 
 const MESSAGE = [
