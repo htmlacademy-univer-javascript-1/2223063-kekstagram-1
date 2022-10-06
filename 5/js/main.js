@@ -12,17 +12,16 @@ const getRandomArrayElement = function (elements) {
   return elements[getRandomNumber(0, elements.length - 1)];
 };
 
-const names = [
+const NAMES = [
   'Алексей',
   'Виктор',
   'Василиса',
   'Василий',
   'Валентин',
   'Анна'
-
 ];
 
-const message = [
+const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Пойдет и ладно.',
@@ -30,27 +29,27 @@ const message = [
   'Чудесно все'
 ];
 
-const descriptions = [
+const DESCRIPTIONS  = [
   'Это просто доказательство того, что я могу быть лучшим эгоистом, чем вы.',
   'Я очень творческая личность — хочу творю, хочу вытворяю!',
   'Дружба — это один разум в двух телах',
   'Закон подлости — это единственный закон, который реально работает в нашей стране!'
 ];
 
-const photoCount = 25;
-const photoDescriptions = [];
+const PHOTO_COUNT = 25;
+const PHOTO_DESCRIPTION = [];
 
-for (let i = 1; i <= photoCount; i++) {
-  photoDescriptions.push({
+for (let i = 1; i <= PHOTO_COUNT; i++) {
+  PHOTO_DESCRIPTION.push({
     id: i,
     url: `photos/${i}.jpg`,
-    description: descriptions[i],
+    description: DESCRIPTIONS[i],
     likes: getRandomNumber(15, 200),
     comments: [{
       id: i * getRandomNumber(1, 100),
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
-      message: getRandomArrayElement(message),
-      name: getRandomArrayElement(name)
+      message: getRandomArrayElement(MESSAGE),
+      name: getRandomArrayElement(NAMES)
     }]
   });
 }
