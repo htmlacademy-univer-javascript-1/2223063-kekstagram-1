@@ -8,7 +8,4 @@ function checkStringLength (string, length) {
   return string.length <= length;
 };
 
-const getRandomArrayElement = function (elements) {
-  return elements[getRandomNumber(0, elements.length - 1)];
-};
 export { getRandomNumber, checkStringLength };
