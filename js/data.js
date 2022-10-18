@@ -1,4 +1,9 @@
 import { getRandomNumber } from './util.js';
+
+const getRandomArrayElement = function (elements) {
+  return elements[getRandomNumber(0, elements.length - 1)];
+};
+
 const NAMES = [
   'Алексей',
   'Виктор',
@@ -40,4 +45,4 @@ for (let i = 1; i <= PHOTO_COUNT; i++) {
     }]
   });
 }
-export {NAMES, MESSAGES};
+export { NAMES, MESSAGES, DESCRIPTIONS, PHOTO_DESCRIPTION };
