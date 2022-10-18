@@ -40,3 +40,4 @@ for (let i = 1; i <= PHOTO_COUNT; i++) {
     }]
   });
 }
+export {NAMES, MESSAGES};
