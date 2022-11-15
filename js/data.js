@@ -26,29 +26,41 @@ const DESCRIPTIONS  = [
 ];
 
 const PHOTO_COUNT = 25;
-#const PHOTO_DESCRIPTION = [];
+const PHOTO_DESCRIPTION = [];
 
 const getRandomArrayElement = function (elements) {
   return elements[getRandomNumber(0, elements.length - 1)];
 };
 
-function createComments() {
-  return { id: i * getRandomNumber(1, 100),
-      avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
-      message: getRandomArrayElement(MESSAGE),
-      name: getRandomArrayElement(NAMES)
+
+function createPhotoDescriptions () {
+  for (let i = 0; i < PHOTO_COUNT; i++) {
+    PHOTO_DESCRIPTION[i] = {
+      id: i + 1,
+      url: `photos/${i}.jpg`,
+      description: DESCRIPTIONS[i],
+      likes: getRandomNumber(15, 200),
+      comments: createComments(getRandomNumber(1,6))
   };
 }
- 
-function createPhotoDescriptions () {
-  return {
-    id: i,
-    url: `photos/${i}.jpg`,
-    description: DESCRIPTIONS[i],
-    likes: getRandomNumber(15, 200),
-    comments: Array.from({length: getRandomNumber(1, 5)}, createComments)
-  };
+return PHOTO_DESCRIPTION;
 }
 
-const createPhotos = () => Array.from({length: PHOTO_COUNT}, createPhotoDescriptions);
-export {createPhotos};
+
+
+function createComments() {
+  const comments = [];
+  for (let i = 0; i < PHOTO_COUNT; i++){
+  comments[i] = {
+      id: i + 1,
+      avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
+      message: getRandomArrayElement(MESSAGE),
+      name: getRandomArrayElement(NAMES)}
+  };
+  }
+return comments;
+}
+ 
+createPhotoDescriptions();
+export {PHOTO_DESCRIPTION};
+export {NAMES, MESSAGE, createPhotoDescriptions, createComments};
