@@ -1,18 +1,30 @@
-import {createPhotos} from './data.js';
+import {PHOTO_DESCRIPTION} from './data.js';
 
-const picturesContainerElement = document.querySelector('.pictures');
-const picturesTemplate = document.querySelector('#picture').content.querySelector('a');
+const picture = document.querySelector('.pictures');
 
-const similarPhotos = createPhotos();
+const picturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const similarListFragment = document.createDocumentFragment();
+const newPhoto = document.createDocumentFragment();
 
-similarPhotos.forEach(({url, likes, comments}) => {
-  const photosElement = picturesTemplate.cloneNode(true);
-  photosElement.querySelector('img').setAttribute('src', url);
-  photosElement.querySelector('.picture__likes').textContent = likes;
-  photosElement.querySelector('.picture__comments').textContent = comments.length;
-  similarListFragment.append(photosElement);
-});
+const renderPhoto = (photo) => {
+  const item = picturesTemplate.cloneNode(true);
 
-picturesContainerElement.append(similarListFragment);
+  const img = item.querySelector('.picture__img');
+  img.src = photo.url;
+
+  const likes = item.querySelector('.picture__likes');
+  likes.textContent = photo.likes;
+
+  const comments = item.querySelector('.picture__comments');
+  comments.textContent = photo.comments.length;
+  return item;
+};
+
+const renderPhotos = () => {
+  PHOTO_DESCRIPTION.forEach((photo) => {
+    newPhoto.appendChild(renderPhoto(photo));
+  });
+  picture.appendChild(newPhoto);
+};
+
+renderPhotos();
