@@ -26,24 +26,29 @@ const DESCRIPTIONS  = [
 ];
 
 const PHOTO_COUNT = 25;
-const PHOTO_DESCRIPTION = [];
+#const PHOTO_DESCRIPTION = [];
 
 const getRandomArrayElement = function (elements) {
   return elements[getRandomNumber(0, elements.length - 1)];
 };
 
-for (let i = 1; i <= PHOTO_COUNT; i++) {
-  PHOTO_DESCRIPTION.push({
+function createComments() {
+  return { id: i * getRandomNumber(1, 100),
+      avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
+      message: getRandomArrayElement(MESSAGE),
+      name: getRandomArrayElement(NAMES)
+  };
+}
+ 
+function createPhotoDescriptions () {
+  return {
     id: i,
     url: `photos/${i}.jpg`,
     description: DESCRIPTIONS[i],
     likes: getRandomNumber(15, 200),
-    comments: [{
-      id: i * getRandomNumber(1, 100),
-      avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
-      message: getRandomArrayElement(MESSAGE),
-      name: getRandomArrayElement(NAMES)
-    }]
-  });
+    comments: Array.from({length: getRandomNumber(1, 5)}, createComments)
+  };
 }
-export { NAMES, MESSAGES, DESCRIPTIONS, PHOTO_DESCRIPTION };
+
+const createPhotos = () => Array.from({length: PHOTO_COUNT}, createPhotoDescriptions);
+export {createPhotos};
