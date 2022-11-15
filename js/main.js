@@ -1,1 +1,1 @@
-
+import './rendering-thumbnails.js';
