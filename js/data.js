@@ -32,18 +32,35 @@ const getRandomArrayElement = function (elements) {
   return elements[getRandomNumber(0, elements.length - 1)];
 };
 
-for (let i = 1; i <= PHOTO_COUNT; i++) {
-  PHOTO_DESCRIPTION.push({
-    id: i,
-    url: `photos/${i}.jpg`,
-    description: DESCRIPTIONS[i],
-    likes: getRandomNumber(15, 200),
-    comments: [{
-      id: i * getRandomNumber(1, 100),
+
+function createPhotoDescriptions () {
+  for (let i = 0; i < PHOTO_COUNT; i++) {
+    PHOTO_DESCRIPTION[i] = {
+      id: i + 1,
+      url: `photos/${i}.jpg`,
+      description: DESCRIPTIONS[i],
+      likes: getRandomNumber(15, 200),
+      comments: createComments(getRandomNumber(1,6))
+  };
+}
+return PHOTO_DESCRIPTION;
+}
+
+
+
+function createComments() {
+  const comments = [];
+  for (let i = 0; i < PHOTO_COUNT; i++){
+  comments[i] = {
+      id: i + 1,
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
       message: getRandomArrayElement(MESSAGE),
-      name: getRandomArrayElement(NAMES)
-    }]
-  });
+      name: getRandomArrayElement(NAMES)}
+  };
+  }
+return comments;
 }
-export { NAMES, MESSAGES, DESCRIPTIONS, PHOTO_DESCRIPTION };
+ 
+createPhotoDescriptions();
+export {PHOTO_DESCRIPTION};
+export {NAMES, MESSAGE, createPhotoDescriptions, createComments};
