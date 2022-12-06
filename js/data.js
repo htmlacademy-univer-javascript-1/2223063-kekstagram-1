@@ -56,10 +56,12 @@ function createComments() {
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
       message: getRandomArrayElement(MESSAGE),
       name: getRandomArrayElement(NAMES)}
-  };
+     };
   }
+
   return comments;
 }
+
  
 createPhotoDescriptions();
 export {PHOTO_DESCRIPTION};
