@@ -41,26 +41,25 @@ function createPhotoDescriptions () {
       description: DESCRIPTIONS[i],
       likes: getRandomNumber(15, 200),
       comments: createComments(getRandomNumber(1,6))
-  };
+    };
+  }
+  return PHOTO_DESCRIPTION;
 }
-return PHOTO_DESCRIPTION;
-}
-
-
 
 function createComments() {
   const comments = [];
   for (let i = 0; i < PHOTO_COUNT; i++){
-  comments[i] = {
+    comments[i] = {
       id: i + 1,
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
       message: getRandomArrayElement(MESSAGE),
-      name: getRandomArrayElement(NAMES)}
-  };
+      name: getRandomArrayElement(NAMES)
+    };
   }
-return comments;
+
+  return comments;
 }
- 
+
 createPhotoDescriptions();
 export {PHOTO_DESCRIPTION};
 export {NAMES, MESSAGE, createPhotoDescriptions, createComments};

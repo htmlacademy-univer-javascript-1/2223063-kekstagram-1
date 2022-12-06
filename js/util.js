@@ -7,5 +7,7 @@ function getRandomNumber(first, second){
 function checkStringLength (string, length) {
   return string.length <= length;
 }
+const isEscape = (evt) => evt.key === 'Escape';
 
-export { getRandomNumber, checkStringLength };
+
+export { getRandomNumber, checkStringLength, isEscape };
