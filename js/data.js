@@ -60,7 +60,6 @@ function createComments() {
   return comments;
 }
 
- 
 createPhotoDescriptions();
 export {PHOTO_DESCRIPTION};
 export {NAMES, MESSAGE, createPhotoDescriptions, createComments};
