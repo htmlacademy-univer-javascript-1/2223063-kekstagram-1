@@ -61,13 +61,3 @@ const restart = () => {
 
 
 export { scalingPhotos, restart };
-
-
-
-
-
-
-
-
-
-
