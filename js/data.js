@@ -58,7 +58,7 @@ function createComments() {
       name: getRandomArrayElement(NAMES)}
   };
   }
-return comments;
+  return comments;
 }
  
 createPhotoDescriptions();
