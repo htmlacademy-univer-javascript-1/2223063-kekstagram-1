@@ -55,7 +55,7 @@ function createComments() {
       id: i + 1,
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
       message: getRandomArrayElement(MESSAGE),
-      name: getRandomArrayElement(NAMES)}
+      name: getRandomArrayElement(NAMES)
   };
   }
 return comments;
