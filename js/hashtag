@@ -1,3 +1,8 @@
+import { sendRequest } from './server.js';
+import { showAlert } from './util.js';
+import { isEscape } from './util.js';
+import { restartForm } from './uploadFile.js';
+
 const MAX_SYMBOLS = 20;
 const MAX_HASHTAGS = 5;
 
