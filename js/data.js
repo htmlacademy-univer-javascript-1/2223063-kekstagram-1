@@ -1,5 +1,7 @@
 import { getRandomNumber } from './util.js';
 
+const PHOTO_COUNT = 25;
+
 const NAMES = [
   'Алексей',
   'Виктор',
@@ -25,7 +27,7 @@ const DESCRIPTIONS  = [
   'Закон подлости — это единственный закон, который реально работает в нашей стране!'
 ];
 
-const PHOTO_COUNT = 25;
+
 const PHOTO_DESCRIPTION = [];
 
 const getRandomArrayElement = function (elements) {
@@ -40,7 +42,7 @@ function createPhotoDescriptions () {
       url: `photos/${i}.jpg`,
       description: DESCRIPTIONS[i],
       likes: getRandomNumber(15, 200),
-      comments: createComments(getRandomNumber(1,6))
+      comments: createComments(getRandomNumber(1,17))
     };
   }
   return PHOTO_DESCRIPTION;
@@ -61,5 +63,4 @@ function createComments() {
 }
 
 createPhotoDescriptions();
-export {PHOTO_DESCRIPTION};
-export {NAMES, MESSAGE, createPhotoDescriptions, createComments};
+export {NAMES, MESSAGE, createPhotoDescriptions, createComments, PHOTO_DESCRIPTION};

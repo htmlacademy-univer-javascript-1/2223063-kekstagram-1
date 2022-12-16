@@ -1,10 +1,7 @@
-import {PHOTO_DESCRIPTION} from './data.js';
-import { showPictures } from './bigPicture.js';
+import { showBigPictures } from './bigPicture.js';
 
 const picture = document.querySelector('.pictures');
-
 const picturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
-
 const newPhoto = document.createDocumentFragment();
 
 const renderPhoto = (photo) => {
@@ -18,7 +15,6 @@ const renderPhoto = (photo) => {
 
   const comments = item.querySelector('.picture__comments');
   comments.textContent = photo.comments.length;
-  
   item.addEventListener('click', (evt) => {
     evt.preventDefault();
     showBigPictures(photo);
@@ -26,11 +22,12 @@ const renderPhoto = (photo) => {
   return item;
 };
 
-const renderPhotos = () => {
-  PHOTO_DESCRIPTION.forEach((photo) => {
+const renderPhotos = (photos) => {
+  photos.forEach((photo) => {
     newPhoto.appendChild(renderPhoto(photo));
   });
   picture.appendChild(newPhoto);
 };
 
-renderPhotos();
+export { renderPhotos };
+
