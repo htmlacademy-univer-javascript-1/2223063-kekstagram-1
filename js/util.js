@@ -1,3 +1,4 @@
+const ALERT_SHOW_TIME = 5000;
 function getRandomNumber(first, second){
   const lower = Math.ceil(Math.min(Math.abs(first), Math.abs(second)));
   const upper = Math.floor(Math.max(Math.abs(first), Math.abs(second)));
