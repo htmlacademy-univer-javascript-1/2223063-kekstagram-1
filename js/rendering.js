@@ -2,12 +2,13 @@ import {PHOTO_DESCRIPTION} from './data.js';
 
 const picture = document.querySelector('.pictures');
 
-const picturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const template = document.querySelector('#picture').content;
+const templatePictures = template.querySelector('.picture');
 
-const newPhoto = document.createDocumentFragment();
+const newFragment = document.createDocumentFragment();
 
 const renderPhoto = (photo) => {
-  const item = picturesTemplate.cloneNode(true);
+  const item = templatePictures.cloneNode(true);
 
   const img = item.querySelector('.picture__img');
   img.src = photo.url;
@@ -22,9 +23,9 @@ const renderPhoto = (photo) => {
 
 const renderPhotos = () => {
   PHOTO_DESCRIPTION.forEach((photo) => {
-    newPhoto.appendChild(renderPhoto(photo));
+    newFragment.appendChild(renderPhoto(photo));
   });
-  picture.appendChild(newPhoto);
+  picture.appendChild(newFragment);
 };
 
 renderPhotos();
