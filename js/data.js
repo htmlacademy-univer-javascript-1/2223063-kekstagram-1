@@ -1,5 +1,7 @@
 import { getRandomNumber } from './util.js';
 
+const PHOTO_COUNT = 25;
+
 const NAMES = [
   'Алексей',
   'Виктор',
@@ -10,7 +12,7 @@ const NAMES = [
   'Алена'
 ];
 
-const MESSAGE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Пойдет и ладно.',
@@ -25,7 +27,6 @@ const DESCRIPTIONS  = [
   'Закон подлости — это единственный закон, который реально работает в нашей стране!'
 ];
 
-const PHOTO_COUNT = 25;
 const PHOTO_DESCRIPTION = [];
 
 const getRandomArrayElement = function (elements) {
@@ -54,7 +55,7 @@ function createComments() {
   comments[i] = {
       id: i + 1,
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
-      message: getRandomArrayElement(MESSAGE),
+      message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(NAMES)}
   };
   }
@@ -63,4 +64,4 @@ return comments;
  
 createPhotoDescriptions();
 export {PHOTO_DESCRIPTION};
-export {NAMES, MESSAGE, createPhotoDescriptions, createComments};
+export {NAMES, MESSAGES, createPhotoDescriptions, createComments};
