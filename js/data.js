@@ -12,7 +12,7 @@ const NAMES = [
   'Алена'
 ];
 
-const MESSAGE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Пойдет и ладно.',
@@ -26,8 +26,6 @@ const DESCRIPTIONS  = [
   'Дружба — это один разум в двух телах',
   'Закон подлости — это единственный закон, который реально работает в нашей стране!'
 ];
-
-
 const PHOTO_DESCRIPTION = [];
 
 const getRandomArrayElement = function (elements) {
@@ -54,6 +52,10 @@ function createComments() {
     comments[i] = {
       id: i + 1,
       avatar: `img/avatar${getRandomNumber(1, 6)}.svg`,
+
+      message: getRandomArrayElement(MESSAGES),
+      name: getRandomArrayElement(NAMES)}
+  };
       message: getRandomArrayElement(MESSAGE),
       name: getRandomArrayElement(NAMES)
     };
@@ -63,4 +65,9 @@ function createComments() {
 }
 
 createPhotoDescriptions();
+
+export {PHOTO_DESCRIPTION};
+export {NAMES, MESSAGES, createPhotoDescriptions, createComments};
+
 export {NAMES, MESSAGE, createPhotoDescriptions, createComments, PHOTO_DESCRIPTION};
+
