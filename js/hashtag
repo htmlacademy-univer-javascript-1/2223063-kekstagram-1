@@ -89,6 +89,10 @@ const removeMessage = () => {
   }
   if (mes.querySelector('.error')) {
     document.querySelector('.error_message').remove();
+    document.querySelector('.error_message').remove();
+    document.querySelector('.img-upload__overlay').classList.add('hidden');
+    document.querySelector('body').classList.remove('modal-open');
+    button.disabled = false;
   }
 
 };
