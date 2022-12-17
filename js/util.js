@@ -1,7 +1,11 @@
 function getRandomNumber(first, second){
-  const lower = Math.ceil(Math.min(Math.abs(first), Math.abs(second)));
-  const upper = Math.floor(Math.max(Math.abs(first), Math.abs(second)));
-  return Math.floor(Math.random() * (upper - lower + 1) + lower);
+  first = Math.ceil(first);
+  second = Math.ceil(second);
+
+  if (first < second) {
+    return Math.floor(Math.random() * (second - first + 1)) + first;
+  }
+  return 'неверно введённые данные';
 }
 
 function checkStringLength (string, length) {
